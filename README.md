@@ -35,9 +35,6 @@ BY994562259BR
 
 # Demonstração
 
-<a href="https://ibb.co/1rf3jXf"><img src="https://i.ibb.co/pfvg5Kv/Screenshot-18.png" target="_blank" border="0"></a>
-<a href="https://ibb.co/CPzPxx2"><img src="https://i.ibb.co/phxhCCy/Screenshot-19.png" target="_blank" border="0"></a>
-
 <p align="center">
    https://dkme01.github.io/courier-tracking-test/
 </p>
