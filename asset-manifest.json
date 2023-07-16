@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/courier-tracking-test/static/js/main.d7e95cb4.chunk.js",
+    "main.js.map": "/courier-tracking-test/static/js/main.d7e95cb4.chunk.js.map",
+    "runtime-main.js": "/courier-tracking-test/static/js/runtime-main.2fb6dc9e.js",
+    "runtime-main.js.map": "/courier-tracking-test/static/js/runtime-main.2fb6dc9e.js.map",
+    "static/js/2.31da0a65.chunk.js": "/courier-tracking-test/static/js/2.31da0a65.chunk.js",
+    "static/js/2.31da0a65.chunk.js.map": "/courier-tracking-test/static/js/2.31da0a65.chunk.js.map",
+    "index.html": "/courier-tracking-test/index.html",
+    "static/js/2.31da0a65.chunk.js.LICENSE.txt": "/courier-tracking-test/static/js/2.31da0a65.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2fb6dc9e.js",
+    "static/js/2.31da0a65.chunk.js",
+    "static/js/main.d7e95cb4.chunk.js"
+  ]
+}
