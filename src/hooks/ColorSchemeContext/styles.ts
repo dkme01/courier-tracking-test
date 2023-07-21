@@ -1,10 +1,17 @@
 import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
+  "@global": {
+    fontFamily: "Roboto, Verdana",
+  },
   root: {
     display: "flex",
   },
-  toolbar: {},
+  toolbar: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   title: {
     flexGrow: 1,
     textAlign: "center",

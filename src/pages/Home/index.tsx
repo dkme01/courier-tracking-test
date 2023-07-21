@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Box, Grid, Typography } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
@@ -7,13 +7,9 @@ import React, { useState } from "react";
 import { CustomSearchBar } from "../../components/CustomSearchBar";
 import { CustomTable } from "../../components/CustomTable";
 import { TrackingInfo, TrackingStatusEnum } from "../../services/tracking";
+import { footers } from "../../utils/footers";
 
 const styles = (theme: any) => ({
-  "@global": {
-    body: {
-      backgroundColor: theme.palette.common.black,
-    },
-  },
   appBar: {
     position: "relative",
   },
@@ -31,7 +27,6 @@ const styles = (theme: any) => ({
     },
   },
   heroContent: {
-    maxWidth: 800,
     margin: "0 auto",
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
@@ -55,36 +50,6 @@ const styles = (theme: any) => ({
     padding: `${theme.spacing.unit * 6}px 0`,
   },
 });
-
-const footers = [
-  {
-    title: "Company",
-    description: ["Team", "History", "Contact us", "Locations"],
-  },
-  {
-    title: "Features",
-    description: [
-      "Cool stuff",
-      "Random feature",
-      "Team feature",
-      "Developer stuff",
-      "Another one",
-    ],
-  },
-  {
-    title: "Resources",
-    description: [
-      "Resource",
-      "Resource name",
-      "Another resource",
-      "Final resource",
-    ],
-  },
-  {
-    title: "Legal",
-    description: ["Privacy policy", "Terms of use"],
-  },
-];
 
 export function createData(trackedContent: TrackingInfo) {
   return {
@@ -176,16 +141,35 @@ function Home(props: any) {
       <CssBaseline />
       <main className={classes.layout}>
         <div className={classes.heroContent}>
-          <Typography
-            component="h1"
-            variant="h1"
-            align="center"
-            color="textPrimary"
-            gutterBottom
+          <Grid
+            container
+            spacing={4}
+            direction="row"
+            alignItems="center"
+            justify="center"
           >
-            Courier Tracking
-          </Typography>
-          <CustomSearchBar handleSearch={handleSearch} />
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justify="center"
+              item
+              md={8}
+              xs={12}
+            >
+              <Typography
+                component="h1"
+                variant="h1"
+                align="left"
+                style={{ color: "#688BC3", fontWeight: 800 }}
+              >
+                Courier Tracking
+              </Typography>
+            </Grid>
+            <Grid item md={4} xs={12}>
+              <CustomSearchBar handleSearch={handleSearch} />
+            </Grid>
+          </Grid>
         </div>
         <Grid container style={{ marginTop: 10 }}>
           {trackingContent.length > 0 ? (
@@ -201,6 +185,12 @@ function Home(props: any) {
               >
                 No packages found
               </Typography>
+              <img
+                style={{ marginTop: "4rem" }}
+                width="250em"
+                height="250em"
+                src={require("../../assets/no-results.png").default}
+              />
             </div>
           )}
         </Grid>
@@ -209,7 +199,11 @@ function Home(props: any) {
         <Grid container spacing={4} justify="space-evenly">
           {footers.map((footer) => (
             <Grid item xs key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
+              <Typography
+                variant="h6"
+                style={{ color: "#688BC3", fontWeight: "bold" }}
+                gutterBottom
+              >
                 {footer.title}
               </Typography>
               {footer.description.map((item) => (

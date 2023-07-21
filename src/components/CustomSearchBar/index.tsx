@@ -6,6 +6,7 @@ import {
   Paper,
   Select,
   TextField,
+  InputAdornment,
 } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 import { Autocomplete } from "@material-ui/lab";
@@ -31,6 +32,7 @@ export function CustomSearchBar({ handleSearch }: CustomSearchBarProps) {
   return (
     <Paper component="form" elevation={0} className={customClasses.root}>
       <TextField
+        style={{ paddingRight: 0 }}
         onChange={(e) => handleSearchTextChange(e.target.value)}
         placeholder="Type the tracking code here"
         variant="outlined"
@@ -43,18 +45,25 @@ export function CustomSearchBar({ handleSearch }: CustomSearchBarProps) {
             onSearch();
           }
         }}
-      />
-      <IconButton
-        type="submit"
-        className={customClasses.iconButton}
-        aria-label="search"
-        onClick={(e) => {
-          e.preventDefault();
-          onSearch();
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end" style={{ paddingRight: 0 }}>
+              <IconButton
+                type="submit"
+                className={customClasses.iconButton}
+                aria-label="search"
+                style={{ backgroundColor: "#EECB57" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onSearch();
+                }}
+              >
+                <Search />
+              </IconButton>
+            </InputAdornment>
+          ),
         }}
-      >
-        <Search />
-      </IconButton>
+      />
     </Paper>
   );
 }

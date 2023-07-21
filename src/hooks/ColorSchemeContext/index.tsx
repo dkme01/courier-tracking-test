@@ -14,12 +14,12 @@ const ColorSchemeContext = createContext<ColorSchemeContextData>(
 
 function ColorSchemeProvider({ children }: any) {
   const [darkState, setDarkState] = useState(true);
-  const mainPrimaryColor = darkState ? "#ff9800" : "#03a9f4";
+  const mainPrimaryColor = darkState ? "#688BC3" : "#03a9f4";
   const mainSecondaryColor = darkState ? "##bf360c" : "#673ab7";
   const customClasses = useStyles();
   const darkTheme = createMuiTheme({
     palette: {
-      type: darkState ? "dark" : "light",
+      type: "light",
       primary: {
         main: mainPrimaryColor,
       },

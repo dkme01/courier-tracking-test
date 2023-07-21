@@ -16,6 +16,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@material-ui/icons";
 import { useRowStyles } from "./styles";
 import { TrackingInfo } from "../../services/tracking";
 import { createData } from "../../pages/Home";
+import CustomSteps from "../CustomSteps";
 
 interface CustomTableProps {
   trackingContent: Array<TrackingInfo>;
@@ -37,12 +38,20 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell component="th" scope="row">
           {row.packageCode}
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell
+          style={{ color: "#688BC3", fontWeight: "bold" }}
+          component="th"
+          scope="row"
+        >
           {row.status}
         </TableCell>
         <TableCell align="right">{row.clientName}</TableCell>
-        <TableCell align="right">{row.updateDate}</TableCell>
-        <TableCell align="right">{row.endDateExpectation}</TableCell>
+        <TableCell align="right">
+          {new Date(row.updateDate).toLocaleDateString("pt-BR")}
+        </TableCell>
+        <TableCell align="right">
+          {new Date(row.endDateExpectation).toLocaleDateString("pt-BR")}
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -51,30 +60,54 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               <Typography variant="h6" gutterBottom component="div">
                 History
               </Typography>
+              <CustomSteps activeStep={row.status} />
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Code</TableCell>
-                    <TableCell align="right">Status</TableCell>
-                    <TableCell align="right">ZIP Code</TableCell>
-                    <TableCell align="right">City</TableCell>
-                    <TableCell align="right">State</TableCell>
-                    <TableCell align="right">Client Name</TableCell>
-                    <TableCell align="right">Last Update</TableCell>
-                    <TableCell align="right">ETA</TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }}>Code</TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      Status
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      ZIP Code
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      City
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      State
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      Client Name
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      Last Update
+                    </TableCell>
+                    <TableCell style={{ fontSize: "1.125rem" }} align="right">
+                      ETA
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   <TableRow>
                     <TableCell>{row.packageCode}</TableCell>
-                    <TableCell align="right">{row.status}</TableCell>
+                    <TableCell
+                      style={{ color: "#688BC3", fontWeight: "bold" }}
+                      align="right"
+                    >
+                      {row.status}
+                    </TableCell>
                     <TableCell align="right">{row.zipCode}</TableCell>
                     <TableCell align="right">{row.city}</TableCell>
                     <TableCell align="right">{row.state}</TableCell>
                     <TableCell align="right">{row.clientName}</TableCell>
-                    <TableCell align="right">{row.updateDate}</TableCell>
                     <TableCell align="right">
-                      {row.endDateExpectation}
+                      {new Date(row.updateDate).toLocaleDateString("pt-BR")}
+                    </TableCell>
+                    <TableCell align="right">
+                      {new Date(row.endDateExpectation).toLocaleDateString(
+                        "pt-BR"
+                      )}
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -94,11 +127,54 @@ export function CustomTable({ trackingContent }: CustomTableProps) {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Code</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell align="right">Client Name</TableCell>
-            <TableCell align="right">Last Update</TableCell>
-            <TableCell align="right">ETA</TableCell>
+            <TableCell
+              style={{
+                color: "#688BC3",
+                fontSize: "1.025rem",
+                fontWeight: "bold",
+              }}
+            >
+              Code
+            </TableCell>
+            <TableCell
+              style={{
+                color: "#688BC3",
+                fontSize: "1.025rem",
+                fontWeight: "bold",
+              }}
+            >
+              Status
+            </TableCell>
+            <TableCell
+              style={{
+                color: "#688BC3",
+                fontSize: "1.025rem",
+                fontWeight: "bold",
+              }}
+              align="right"
+            >
+              Client Name
+            </TableCell>
+            <TableCell
+              style={{
+                color: "#688BC3",
+                fontSize: "1.025rem",
+                fontWeight: "bold",
+              }}
+              align="right"
+            >
+              Last Update
+            </TableCell>
+            <TableCell
+              style={{
+                color: "#688BC3",
+                fontSize: "1.025rem",
+                fontWeight: "bold",
+              }}
+              align="right"
+            >
+              ETA
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
